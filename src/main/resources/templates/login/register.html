@@ -1,0 +1,96 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>注册</title>
+    <div th:include="common/css::css"></div>
+</head>
+<script>
+    function abc(){
+        var email=$("#email").val();
+        var password=$("#password").val()
+        $.ajax({
+            type: "post",
+            url: "/register",
+            data:{
+                "email": email,
+                "password": password
+            },
+            success: function (result){
+                alert(result.message);
+            },
+        })
+    }
+</script>
+<body>
+<!-- loader Start -->
+<div id="loading">
+    <div id="loading-center">
+    </div>
+</div>
+<!-- loader END -->
+<!-- Sign in Start -->
+<section class="sign-in-">
+    <div class="container mt-5 p-0 bg-white">
+        <div class="row no-gutters">
+            <div class="col-sm-6 align-self-center">
+                <div class="sign-in-from">
+                    <h1 class="mb-0">注册</h1>
+                    <p>请输入邮件地址和密码</p>
+                    <form class="mt-4">
+                        <div class="form-group">
+                            <label for="email">邮件地址</label>
+                            <input type="text" class="form-control mb-0" id="email"name="email" placeholder="邮件地址">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="password" class="form-control mb-0" id="password" name="password" placeholder="密码">
+                        </div>
+                        <div class="d-inline-block w-100">
+                            <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">我接受 <a href="#">服务许可条例</a></label>
+                            </div>
+                            <button type="button" class="btn btn-primary float-right" onclick="abc()" >注册</button>
+                        </div>
+                        <div class="sign-info">
+                            <span class="dark-color d-inline-block line-height-2">已有账户? <a th:href="@{/login}">登录</a></span>
+                            <ul class="iq-social-media">
+                                <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
+                                <li><a href="#"><i class="ri-twitter-line"></i></a></li>
+                                <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6 text-center">
+                <div class="sign-in-detail text-white">
+                    <a class="sign-in-logo mb-5" href="#"><img src="images/logo-white.png" class="img-fluid" alt="logo"></a>
+                    <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
+                        <div class="item">
+                            <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
+                            <h4 class="mb-1 text-white">管理学生</h4>
+                            <p>毫无疑问这是一个简单的学生成绩管理系统</p>
+                        </div>
+                        <div class="item">
+                            <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
+                            <h4 class="mb-1 text-white">管理学生</h4>
+                            <p>毫无疑问这是一个简单的学生成绩管理系统</p>
+                        </div>
+                        <div class="item">
+                            <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
+                            <h4 class="mb-1 text-white">管理学生</h4>
+                            <p>毫无疑问这是一个简单的学生成绩管理系统</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:include="common/js::js"></div>
+</body>
+</html>
